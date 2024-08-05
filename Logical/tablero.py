@@ -18,6 +18,7 @@ class Tablero:
         retroalimentacion = []
         copia_color = self.color_secreto.copy()
         for i in range (4):
+            
             if intento[i] == copia_color[i]:
                 retroalimentacion.append('verde')
                 copia_color[i] = None
@@ -30,12 +31,12 @@ class Tablero:
 
     def mostrar(self): #muestra los colores en el panel.
         for intento, retroalimentacion in self.turnos:
-            fila_jugada = ' '.join([self.colores[color]+"⚪"+attr('reset') for color in intento])
+            fila_jugada = ' '.join([self.colores[color]+"o"+attr('reset') for color in intento])
 
             retro_jugada = ' '.join([
-            fg(2) + '⚪'+ attr('reset') if adivina == 'verde'
-            else fg(3)+'⚪'+attr('reset') if adivina == 'amarillo'
-            else '⚪'
+            fg(2) + 'o'+ attr('reset') if adivina == 'verde'
+            else fg(3)+'o'+attr('reset') if adivina == 'amarillo'
+            else '○'
             
             for adivina in retroalimentacion
         ])
